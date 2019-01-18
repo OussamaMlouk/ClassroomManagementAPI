@@ -30,6 +30,13 @@ public class ClassroomEndpoint {
 		return service.createClassroom(classroom);
 	}
 	
+	@Path("/updateClassroom/{classroomID}")
+	@DELETE
+	@Produces({"application/json"})
+	public String updaClassroom(String classroom, @PathParam("classroomID") Long classroomID) {
+		return service.updateClassroom(classroom, classroomID);
+	}
+	
 	@Path("/deleteClassroom/{classroomID}")
 	@DELETE
 	@Produces({"application/json"})

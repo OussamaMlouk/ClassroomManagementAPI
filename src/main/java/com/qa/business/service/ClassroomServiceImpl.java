@@ -18,7 +18,7 @@ public class ClassroomServiceImpl implements ClassroomService {
 		return repo.createClassroom(classroom);
 	}
 
-	public String findClassroom(Long classroomID) {
+	public Classroom findClassroom(Long classroomID) {
 		return repo.findClassroom(classroomID);
 	}
 

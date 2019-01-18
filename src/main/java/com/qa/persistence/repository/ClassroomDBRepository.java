@@ -39,8 +39,8 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"classroom has been sucessfully added\"}";
 	}
 
-	public String findClassroom(Long classroomID) {
-		return util.getJSONForObject(em.find(Classroom.class, classroomID));
+	public Classroom findClassroom(Long classroomID) {
+		return em.find(Classroom.class, classroomID);
 	}
 
 	@Transactional(REQUIRED)
