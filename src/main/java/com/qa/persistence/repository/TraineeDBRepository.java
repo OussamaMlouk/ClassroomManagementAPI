@@ -26,7 +26,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	private JSONUtil util;
 
 	public String getAllTrainees() {
-		Query query = em.createQuery("Select t FROM Trainee t");
+		Query query = em.createQuery("SELECT t FROM Trainee t");
 		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
 		return util.getJSONForObject(trainees);
 	}
@@ -42,6 +42,8 @@ public class TraineeDBRepository implements TraineeRepository {
 	public String updateTrainee(String trainee, Long traineeID) {
 		Trainee traineeInDB = findTrainee(traineeID);
 		if (traineeInDB != null) {
+			deleteTrainee(traineeID);
+			createTrainee(trainee);
 			return "{\"message\": \"trainee successfully updated\"}";
 		} else {
 			return "{\"message\": \"trainee not found\"}";
@@ -52,6 +54,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	public String deleteTrainee(Long traineeID) {
 		Trainee traineeInDB = findTrainee(traineeID);
 		if (traineeInDB != null) {
+			em.remove(traineeInDB);
 			return "{\"message\": \"trainee sucessfully deleted\"}";
 		} else {
 			return "{\"message\": \"trainee not found\"}";
