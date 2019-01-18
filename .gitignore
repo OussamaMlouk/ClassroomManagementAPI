@@ -4,5 +4,5 @@ target
 .factorypath
 .project
 bin
-.scannerwork
-
+/.scannerwork
+/scannerwork
