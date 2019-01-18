@@ -7,16 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Trainee {
-	
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long traineeID;
 	private String traineeName;
-	
+
 	public Trainee() {
-		
+
 	}
-	
+
 	public Trainee(String traineeName) {
 		this.traineeName = traineeName;
 	}
@@ -36,6 +36,5 @@ public class Trainee {
 	public void setTraineeID(Long traineeID) {
 		this.traineeID = traineeID;
 	}
-	
-	
+
 }

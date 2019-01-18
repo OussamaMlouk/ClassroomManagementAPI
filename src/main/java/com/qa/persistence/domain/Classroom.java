@@ -7,18 +7,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Classroom {
-	
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long classroomID;
 	private String trainer;
 	private Trainee trainees;
-	
+
 	public Classroom() {
-		
+
 	}
-	
-	public Classroom (String trainer, Trainee trainees) {
+
+	public Classroom(String trainer, Trainee trainees) {
 		this.trainer = trainer;
 		this.trainees = trainees;
 	}
@@ -46,7 +46,5 @@ public class Classroom {
 	public void setTrainees(Trainee trainees) {
 		this.trainees = trainees;
 	}
-	
-	
 
 }
