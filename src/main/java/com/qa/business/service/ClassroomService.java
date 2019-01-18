@@ -7,7 +7,7 @@ public interface ClassroomService {
 
 	String createClassroom(String classroom);
 
-	Classroom findClassroom(Long classroomID);
+	String findClassroom(Long classroomID);
 
 	String updateClassroom(String classroom, Long classroomID);
 
