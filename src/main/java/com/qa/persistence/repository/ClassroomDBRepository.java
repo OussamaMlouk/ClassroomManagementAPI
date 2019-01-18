@@ -39,13 +39,13 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"classroom has been sucessfully added\"}";
 	}
 
-	public Classroom findClassroom(Long classroomID) {
-		return em.find(Classroom.class, classroomID);
+	public String findClassroom(Long classroomID) {
+		return util.getJSONForObject(em.find(Classroom.class, classroomID));
 	}
 
 	@Transactional(REQUIRED)
 	public String updateClassroom(String classroom, Long classroomID) {
-		Classroom classroomInDB = findClassroom(classroomID);
+		Classroom classroomInDB = em.find(Classroom.class, classroomID);
 		if (classroomInDB != null) {
 			deleteClassroom(classroomID);
 			createClassroom(classroom);
@@ -57,7 +57,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 
 	@Transactional(REQUIRED)
 	public String deleteClassroom(Long classroomID) {
-		Classroom classroomInDB = findClassroom(classroomID);
+		Classroom classroomInDB = em.find(Classroom.class, classroomID);
 		if (classroomInDB != null) {
 			em.remove(classroomInDB);
 			return "{\"message\": \"classroom sucessfully deleted\"}";
