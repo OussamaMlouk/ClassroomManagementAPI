@@ -12,13 +12,13 @@ public class Classroom {
 	@Id
 	private Long classroomID;
 	private String trainer;
-	private Trainee trainees;
+	private String trainees;
 
 	public Classroom() {
 
 	}
 
-	public Classroom(String trainer, Trainee trainees) {
+	public Classroom(String trainer, String trainees) {
 		this.trainer = trainer;
 		this.trainees = trainees;
 	}
@@ -39,11 +39,11 @@ public class Classroom {
 		this.trainer = trainer;
 	}
 
-	public Trainee getTrainees() {
+	public String getTrainees() {
 		return trainees;
 	}
 
-	public void setTrainees(Trainee trainees) {
+	public void setTrainees(String trainees) {
 		this.trainees = trainees;
 	}
 
